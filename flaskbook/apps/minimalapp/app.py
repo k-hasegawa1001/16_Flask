@@ -2,6 +2,8 @@
 from flask import Flask, render_template,url_for,current_app,g,request,redirect
 
 app=Flask(__name__)
+# SECRET_KEYを追加する
+app.config["SECRET_KEY"] = "2AZSMss3p5QPBcY2hBsJ"
 
 @app.route('/')
 def index():
