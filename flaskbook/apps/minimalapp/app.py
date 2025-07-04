@@ -1,9 +1,13 @@
-from email_validator import validate_email, EmailNotValidError
+# loggingをimportする
+import logging
+from email_validator import validate_email, EmailNotValidError # type: ignore
 from flask import Flask, render_template,url_for,current_app,g,request,redirect,flash
 
 app=Flask(__name__)
 # SECRET_KEYを追加する
 app.config["SECRET_KEY"] = "2AZSMss3p5QPBcY2hBsJ"
+# ログレベルを設定する
+app.logger.setLevel(logging.DEBUG)
 
 @app.route('/')
 def index():
