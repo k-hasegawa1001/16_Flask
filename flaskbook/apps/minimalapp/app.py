@@ -1,5 +1,5 @@
-# requestを追加でimportする
-from flask import Flask, render_template,url_for,current_app,g,request
+# redirectを追加でimportする
+from flask import Flask, render_template,url_for,current_app,g,request,redirect
 
 app=Flask(__name__)
 
