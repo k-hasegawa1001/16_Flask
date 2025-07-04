@@ -6,6 +6,10 @@ app=Flask(__name__)
 def index():
     return "Hello, Flaskbook!"
 
-@app.route("/hello")
+@app.route(
+           "/hello",
+           methods=["GET"],
+           endpoint="hello-endpoint"
+           )
 def hello():
     return "Hello, World!"
