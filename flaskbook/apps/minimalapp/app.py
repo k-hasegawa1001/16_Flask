@@ -1,13 +1,17 @@
-# loggingをimportする
 import logging
 from email_validator import validate_email, EmailNotValidError # type: ignore
 from flask import Flask, render_template,url_for,current_app,g,request,redirect,flash
+from flask_debugtoolbar import DebugToolbarExtension # type: ignore
 
 app=Flask(__name__)
 # SECRET_KEYを追加する
 app.config["SECRET_KEY"] = "2AZSMss3p5QPBcY2hBsJ"
 # ログレベルを設定する
 app.logger.setLevel(logging.DEBUG)
+# リダイレクトを中断しないようにする
+app.config["DEBUG_TB_INTERCEPT_REDIRECTS"]=False
+# DebugToolBarExtensionにアプリケーションをセットする
+toolbar = DebugToolbarExtension(app)
 
 @app.route('/')
 def index():
