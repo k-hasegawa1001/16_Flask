@@ -8,8 +8,14 @@ def index():
 
 @app.route(
            "/hello",
-           methods=["GET"],
+           methods=["GET","POST"],
            endpoint="hello-endpoint"
            )
 def hello():
     return "Hello, World!"
+
+# Flask2からは@app.get("/hello")、@app.post("/hello")と記述することが可能
+# @app.get("/hello")
+# @app.post("/hello")
+# def hello():
+#     return "Hello, World!"
