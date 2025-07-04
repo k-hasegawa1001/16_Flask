@@ -1,5 +1,5 @@
-# current_appとgを追加でimportする
-from flask import Flask, render_template,url_for,current_app,g
+# requestを追加でimportする
+from flask import Flask, render_template,url_for,current_app,g,request
 
 app=Flask(__name__)
 
@@ -45,3 +45,7 @@ print(current_app.name)
 g.connection="connection"
 print(g.connection)
 # >> connection
+
+with app.test_request_context("/users?updated=true"):
+    # trueが出力される
+    print(request.args.get("updated"))
