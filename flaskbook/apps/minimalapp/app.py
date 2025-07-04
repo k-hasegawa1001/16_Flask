@@ -57,6 +57,11 @@ def contact():
 @app.route("/contact/complete", methods=["GET","POST"])
 def contact_complete():
     if request.method=="POST":
+        # form属性を使ってフォームの値を取得する
+        usename=request.form["username"]
+        email=request.form["email"]
+        description=request.form["description"]
+
         # メールを送る（最後に実装）
 
         # constctエンドポイントへリダイレクトする
