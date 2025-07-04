@@ -7,15 +7,10 @@ def index():
     return "Hello, Flaskbook!"
 
 @app.route(
-           "/hello",
+           "/hello/<name>",
            methods=["GET","POST"],
            endpoint="hello-endpoint"
            )
-def hello():
-    return "Hello, World!"
-
-# Flask2からは@app.get("/hello")、@app.post("/hello")と記述することが可能
-# @app.get("/hello")
-# @app.post("/hello")
-# def hello():
-#     return "Hello, World!"
+def hello(name):
+    # Python 3.6から導入されたf-stringで文字列を定義
+    return f"Hello, {name}!"
