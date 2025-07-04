@@ -54,7 +54,7 @@ with app.test_request_context("/users?updated=true"):
 def contact():
     return render_template("contact.html")
 
-@app.route("/contact/complete", methods=["GET,POST"])
+@app.route("/contact/complete", methods=["GET","POST"])
 def contact_complete():
     if request.method=="POST":
         # メールを送る（最後に実装）
