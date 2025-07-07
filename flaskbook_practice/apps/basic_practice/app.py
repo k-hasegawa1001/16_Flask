@@ -1,4 +1,4 @@
-from flask import Flask,redirect, render_template,url_for,request,flash
+from flask import Flask,redirect, render_template,url_for,request,flash,make_response,session
 from dotenv import load_dotenv # type: ignore
 import os
 
@@ -51,7 +51,23 @@ def form_out2():
     # print(comment1)
     comment2 = request.form["comment2"]
     comment3 = request.form["comment3"]
-    flash(comment1)
-    flash(comment2)
-    flash(comment3)
+    flash(f"コメント1は{comment1} です")
+    flash(f"コメント2は{comment2} です")
+    flash(f"コメント3は{comment3} です")
     return render_template("form_out2.html")
+
+@app.route("/cookie_session_set/<str>")
+def cookie_session_set(str):
+    response = make_response(render_template("cookie_session_set.html", cookie_val=str, session_val=str))
+    response.set_cookie("q1-8",str)
+    session["q1-8"] = str
+    # print(str)
+    return response
+
+@app.route("/cookie_session_show")
+def cookie_session_show():
+    cookie_val=request.cookies.get("q1-8")
+    session_val=session["q1-8"]
+    print(cookie_val)
+    print(session_val)
+    return render_template("cookie_session_show.html", cookie_val=cookie_val, session_val=session_val)
