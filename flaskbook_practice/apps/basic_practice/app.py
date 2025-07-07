@@ -1,4 +1,4 @@
-from flask import Flask,redirect, render_template,url_for,request,flash,make_response,session
+from flask import Flask,redirect, render_template,url_for,request,flash,make_response,session # type: ignore
 from dotenv import load_dotenv # type: ignore
 import os
 
