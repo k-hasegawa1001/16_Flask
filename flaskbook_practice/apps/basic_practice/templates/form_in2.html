@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>入力フォーム</title>
+</head>
+
+<body>
+    <h2>入力フォーム</h2>
+
+    <form action="{{ url_for('form_out2') }}" method="POST" novalidate="novalidate">
+        <p>コメント1</p>
+        <input type="text" name="comment1" placeholder="コメント" />
+        <p>コメント2</p>
+        <input type="text" name="comment2" placeholder="コメント" />
+        <p>コメント3</p>
+        <input type="text" name="comment3" placeholder="コメント" />
+        <br>
+        <input type="submit" value="送信" />
+    </form>
+</body>
+
+</html>
