@@ -1,6 +1,12 @@
 from flask import Flask,redirect, render_template,url_for,request,flash
+from dotenv import load_dotenv # type: ignore
+import os
+
+load_dotenv()
 
 app=Flask(__name__)
+app.secret_key = os.getenv('SECRET_KEY')
+
 
 @app.route("/")
 def index():
@@ -42,9 +48,10 @@ def form_in2():
 @app.route("/form_out2", methods=["post"])
 def form_out2():
     comment1 = request.form["comment1"]
+    # print(comment1)
     comment2 = request.form["comment2"]
     comment3 = request.form["comment3"]
     flash(comment1)
     flash(comment2)
     flash(comment3)
-    return
+    return render_template("form_out2.html")
