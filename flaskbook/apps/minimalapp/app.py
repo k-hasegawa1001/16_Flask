@@ -2,7 +2,7 @@ import logging
 import os
 from dotenv import load_dotenv # type: ignore
 from email_validator import validate_email, EmailNotValidError # type: ignore
-from flask import Flask, render_template,url_for,current_app,g,request,redirect,flash,session,make_response
+from flask import Flask, render_template,url_for,current_app,g,request,redirect,flash,session,make_response # type: ignore
 from flask_debugtoolbar import DebugToolbarExtension # type: ignore
 from flask_mail import Mail, Message # type: ignore
 
