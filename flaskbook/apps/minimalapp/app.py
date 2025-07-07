@@ -2,7 +2,7 @@ import logging
 import os
 from dotenv import load_dotenv # type: ignore
 from email_validator import validate_email, EmailNotValidError # type: ignore
-from flask import Flask, render_template,url_for,current_app,g,request,redirect,flash
+from flask import Flask, render_template,url_for,current_app,g,request,redirect,flash,session,make_response
 from flask_debugtoolbar import DebugToolbarExtension # type: ignore
 from flask_mail import Mail, Message # type: ignore
 
@@ -66,7 +66,17 @@ with app.test_request_context("/users?updated=true"):
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    # レスポンスオブジェクトを取得する
+    response=make_response(render_template("contact.html"))
+
+    # クッキーを設定する
+    response.set_cookie("flaskbook key", "flaskbook value")
+
+    # セッションを設定する
+    session["username"] = "ichiro"
+
+    # レスポンスオブジェクトを返す
+    return response
 
 @app.route("/contact/complete", methods=["GET","POST"])
 def contact_complete():
