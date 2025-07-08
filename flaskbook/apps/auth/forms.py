@@ -1,6 +1,6 @@
-from flask_wtf import FlaskForm
-from wtforms import PasswordField,StringField,SubmitField
-from wtforms.validators import DataRequired,Email,Length
+from flask_wtf import FlaskForm # type: ignore
+from wtforms import PasswordField,StringField,SubmitField # type: ignore
+from wtforms.validators import DataRequired,Email,Length # type: ignore
 
 class SignupForm(FlaskForm):
     username = StringField(
