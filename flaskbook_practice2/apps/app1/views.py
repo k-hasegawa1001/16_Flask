@@ -14,8 +14,8 @@ def index():
 @app1.route("/page/<int:page>")
 def page(page):
     if page == 1:
-        return render_template("page1.html")
+        return render_template("app1/page1.html")
     elif page == 2:
-        return render_template("page2.html")
+        return render_template("app1/page2.html")
     else:
         return "ページ番号誤り"
