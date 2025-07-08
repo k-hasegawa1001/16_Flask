@@ -11,10 +11,11 @@ app1 = Blueprint(
 def index():
     return "hello"
 
-@app1.route("/page1")
-def page1():
-    return render_template("page1.html")
-
-@app1.route("/page2")
-def page2():
-    return render_template("page2.html")
+@app1.route("/page/<int:page>")
+def page(page):
+    if page == 1:
+        return render_template("page1.html")
+    elif page == 2:
+        return render_template("page2.html")
+    else:
+        return "ページ番号誤り"
