@@ -2,12 +2,12 @@ from pathlib import Path
 from flask import Flask
 from flask_migrate import Migrate # type: ignore
 from flask_sqlalchemy import SQLAlchemy # type: ignore
-from flask_wth.csrf import CSRFPProtect # type: ignore
+from flask_wtf.csrf import CSRFProtect # type: ignore
 
 # SQLAlchemyをインスタンス化する
 db = SQLAlchemy()
 
-csrf = CSRFPProtect()
+csrf = CSRFProtect()
 
 # create_app関数を作成する
 def create_app():
