@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>ページ1</title>
-  </head>
-  <p>ページ1の文章</p>
-</html>
+{% extends "app1/base.html" %} {% block title %}継承ページ1{% endblock %} {% block content %}
+<p>継承ページ1の文章</p>
+{% endblock %}
