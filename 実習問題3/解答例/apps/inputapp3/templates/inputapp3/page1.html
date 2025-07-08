@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <title>入力フォーム</title>
+</head>
+<body>
+    <h2>入力フォーム</h2>
+    <!-- flashエラーを表示する -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li class="flash">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('inputapp3.page2') }}" method="POST">
+        <p>身長(cm):<input type="number" name="height" placeholder="整数で入力してください" required /></p>
+        <p>体重(kg):<input type="number" name="weight" placeholder="整数で入力してください" required /></p>
+        <p>年代:<input type="number" name="age" placeholder="整数で入力してください" required /></p>
+        <br>
+        <input type="submit" value="送信" />
+    </form>
+</body>
+</html>

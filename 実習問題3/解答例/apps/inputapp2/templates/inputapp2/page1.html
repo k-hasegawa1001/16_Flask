@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <title>入力フォーム</title>
+</head>
+<body>
+    <h2>入力フォーム</h2>
+    <form action="{{ url_for('inputapp2.page2') }}" method="POST" novalidate="novalidate">
+        <p>画像ファイル名</p>
+        <p>1.jpg か 2.jpg を入力してください。</p>
+        <input type="text" name="image_file" placeholder="ファイル名" />
+        <br>
+        <input type="submit" value="送信" />
+    </form>
+</body>
+</html>
