@@ -39,6 +39,14 @@ def signup():
         # ユーザー情報をセッションに格納する
         login_user(user)
         # GETパラメーターにnextキーが存在し、値がない場合はユーザーの一覧ページへリダイレクトする
+        """
+        p.152-詳細解説
+        未認証時に認証必須画面へアクセスするとサインアップ画面へリダイレクトされるが、
+        その場合、GETパラメータのnextキーにアクセスしようとしたページのエンドポイントがつく
+
+        nextキーに値がある場合は、サインアップに成功したらnextキーのページへリダイレクト
+        ない場合はユーザーの一覧ページにリダイレクト
+        """
         next_ = request.args.get("next")
         if next_ is None or not next_.startswith("/"):
             next_ = url_for("crud.users")
