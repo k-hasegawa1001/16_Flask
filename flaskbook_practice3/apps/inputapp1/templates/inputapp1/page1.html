@@ -1,0 +1,8 @@
+{% extends "inputapp1/base.html" %} {% block title %}入力フォーム{% endblock %} {% block content %}
+<h1>入力フォーム</h1>
+<form action="{{ url_for('inputapp1.page2') }}" method="post">
+  <p>コメント</p>
+  <input type="text" name="comment" placeholder="コメント" /><br />
+  <input type="submit" />
+</form>
+{% endblock %}
