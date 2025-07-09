@@ -17,7 +17,7 @@ auth = Blueprint(
 def index():
     return render_template("auth/index.html")
 
-@auth.route("/signup", method=["get","post"])
+@auth.route("/signup", methods=["get","post"])
 def signup():
     # SignUpFormをインスタンス化する
     form = SignUpForm()
