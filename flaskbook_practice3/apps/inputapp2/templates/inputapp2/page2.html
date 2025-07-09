@@ -1,0 +1,4 @@
+{% extends "inputapp2/base.html" %} {% block title %}{% endblock %} {% block content %}
+<p>入力結果は {{ filename }} です</p>
+<img src="{{ url_for('inputapp2.static', filename='inputapp2/'+filename) }}" alt="{{ filename }}" style="width: 50%" />
+{% endblock %}

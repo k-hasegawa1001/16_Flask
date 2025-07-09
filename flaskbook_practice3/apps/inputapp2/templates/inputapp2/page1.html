@@ -1,0 +1,9 @@
+{% extends "inputapp1/base.html" %} {% block title %}入力フォーム{% endblock %} {% block content %}
+<h1>入力フォーム</h1>
+<form action="{{ url_for('inputapp2.page2') }}" method="post">
+  <p>画像ファイル名</p>
+  <p>1.jpg、2.jpg、3.jpg、4.jpgのいづれかを入力してください。</p>
+  <input type="text" name="filename" placeholder="ファイル名" /><br />
+  <input type="submit" />
+</form>
+{% endblock %}
