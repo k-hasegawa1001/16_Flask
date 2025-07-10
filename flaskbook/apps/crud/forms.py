@@ -1,6 +1,7 @@
-from flask_wtf import FlaskForm # type: ignore
-from wtforms import PasswordField, StringField, SubmitField # type: ignore
-from wtforms.validators import DataRequired, Email, length # type: ignore
+from flask_wtf import FlaskForm
+from wtforms import PasswordField, StringField, SubmitField
+from wtforms.validators import DataRequired, Email, length
+
 
 # ユーザー新規作成とユーザー編集フォームクラス
 class UserForm(FlaskForm):
@@ -9,23 +10,21 @@ class UserForm(FlaskForm):
         "ユーザー名",
         validators=[
             DataRequired(message="ユーザー名は必須です。"),
-            length(max=30,message="30文字以内で入力してください。")
+            length(max=30, message="30文字以内で入力してください。"),
         ],
     )
-    # ユーザーフォームのemial属性のラベルとバリデータを設定する
+
+    # ユーザーフォームemail属性のラベルとバリデータを設定する
     email = StringField(
         "メールアドレス",
         validators=[
             DataRequired(message="メールアドレスは必須です。"),
-            Email(message="メールアドレスの形式で入力してください。")
+            Email(message="メールアドレスの形式で入力してください。"),
         ],
     )
+
     # ユーザーフォームpassword属性のラベルとバリデータを設定する
-    password = PasswordField(
-        "パスワード",
-        validators=[
-            DataRequired(message="パスワードは必須です。")
-        ]
-    )
+    password = PasswordField("パスワード", validators=[DataRequired(message="パスワードは必須です。")])
+
     # ユーザーフォームsubmitの文言を設定する
     submit = SubmitField("新規登録")

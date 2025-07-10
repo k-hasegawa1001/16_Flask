@@ -1,13 +1,13 @@
 from flask import Flask
-from flask_login import LoginManager # type: ignore
-from flask_migrate import Migrate # type: ignore
-from flask_sqlalchemy import SQLAlchemy # type: ignore
-from flask_wtf.csrf import CSRFProtect # type: ignore
+from flask_login import LoginManager
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
+from flask_wtf.csrf import CSRFProtect
+
 from apps.config import config
 
 db = SQLAlchemy()
 csrf = CSRFProtect()
-
 # LoginManagerをインスタンス化する
 login_manager = LoginManager()
 # login_view属性に未ログイン時にリダイレクトするエンドポイントを指定する
@@ -16,21 +16,25 @@ login_manager.login_view = "auth.signup"
 # ここでは何も表示しないよう空を指定する
 login_manager.login_message = ""
 
+
+# create_app関数を作成する
 def create_app(config_key):
+    # Flaskインスタンス生成
     app = Flask(__name__)
     app.config.from_object(config[config_key])
 
-    csrf.init_app(app)
-
+    # SQLAlchemyとアプリを連携する
     db.init_app(app)
-
-    Migrate(app,db)
-
+    # Migrateとアプリを連携する
+    Migrate(app, db)
+    csrf.init_app(app)
     # login_managerをアプリケーションと連携する
     login_manager.init_app(app)
 
+    # crudパッケージからviewsをimportする
     from apps.crud import views as crud_views
 
+    # register_blueprintを使いviewsのcrudをアプリへ登録する
     app.register_blueprint(crud_views.crud, url_prefix="/crud")
 
     # これから作成するauthパッケージからviewsをimportする
